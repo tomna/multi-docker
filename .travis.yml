@@ -14,7 +14,7 @@ after_success:
   - docker build -t tomna/multi-server ./server
   - docker build -t tomna/multi-worker ./worker
   - echo "$DOCKER_PASSWORD"  |  docker login -u "$DOCKER_ID" --password-stdin
-  - docker push tomna/multi-client
-  - docker push tomna/multi-nginx
-  - docker push tomna/multi-server
-  - docker push lim/multi-worker
+  - docker push limhye/multi-client
+  - docker push limhye/multi-nginx
+  - docker push limhye/multi-server
+  - docker push limhye/multi-worker
