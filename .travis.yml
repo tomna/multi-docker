@@ -19,9 +19,6 @@ after_success:
   - docker push limhye/multi-server
   - docker push limhye/multi-worker
 
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: $AWS_SECRET_KEY
-
 deploy:
   provider : elasticbeanstalk
   region : ap-northeast-2
@@ -33,7 +30,6 @@ deploy:
     edge: true
     provider: elasticbeanstalk
     branch : master
-    access_key_id : $AWS_ACCESS_KEY
-    secret_access_key: 
-      secure: $AWS_SECRET_KEY
+  access_key_id : $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
     
