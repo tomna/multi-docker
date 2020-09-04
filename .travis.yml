@@ -3,7 +3,7 @@ services :
   - docker
 
 before_install : 
-  - docker build -t tomna/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t tomna/react-test -f ./client/Dockerfile.dev ./client2
 
 script : 
   - docker run tomna/react-test npm test -- --coverage
@@ -17,4 +17,4 @@ after_success:
   - docker push tomna/multi-client
   - docker push tomna/multi-nginx
   - docker push tomna/multi-server
-  - docker push tomna/multi-worker
+  - docker push lim/multi-worker
