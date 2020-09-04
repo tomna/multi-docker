@@ -3,18 +3,18 @@ services :
   - docker
 
 before_install : 
-  - docker build -t lim/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t tomna/react-test -f ./client/Dockerfile.dev ./client
 
 script : 
-  - docker run lim/react-test npm test -- --coverage
+  - docker run tomna/react-test npm test -- --coverage
 
 after_success: 
-  - docker build -t lim/multi-client ./client
-  - docker build -t lim/multi-nginx ./nginx
-  - docker build -t lim/multi-server ./server
-  - docker build -t lim/multi-worker ./worker
+  - docker build -t tomna/multi-client ./client
+  - docker build -t tomna/multi-nginx ./nginx
+  - docker build -t tomna/multi-server ./server
+  - docker build -t tomna/multi-worker ./worker
   - echo "$DOCKER_PASSWORD"  |  docker login -u "$DOCKER_ID" --password-stdin
-  - docker push lim/multi-client
-  - docker push lim/multi-nginx
-  - docker push lim/multi-server
-  - docker push lim/multi-worker
+  - docker push tomna/multi-client
+  - docker push tomna/multi-nginx
+  - docker push tomna/multi-server
+  - docker push tomna/multi-worker
