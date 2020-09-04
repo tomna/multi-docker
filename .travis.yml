@@ -30,9 +30,10 @@ deploy:
   bucket_name : elasticbeanstalk-ap-northeast-2-587909237394
   bucket_path : docker-multi
   on: 
+    edge: true
+    provider: elasticbeanstalk
     branch : master
-  access_key_id : $AWS_ACCESS_KEY
-  secret_access_key: 
-    secure: $AWS_SECRET_KEY
-  edge: true
-  provider: elasticbeanstalk
+    access_key_id : $AWS_ACCESS_KEY
+    secret_access_key: 
+      secure: $AWS_SECRET_KEY
+    
