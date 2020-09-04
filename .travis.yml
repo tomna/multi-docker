@@ -18,3 +18,21 @@ after_success:
   - docker push limhye/multi-nginx
   - docker push limhye/multi-server
   - docker push limhye/multi-worker
+
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_KEY
+
+deploy:
+  provider : elasticbeanstalk
+  region : ap-northeast-2
+  app : multi-docker
+  env : MultiDocker-env
+  bucket_name : elasticbeanstalk-ap-northeast-2-587909237394
+  bucket_path : docker-multi
+  on: 
+    branch : master
+  access_key_id : $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY
+  edge: true
+  provider: elasticbeanstalk
